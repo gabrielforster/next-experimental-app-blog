@@ -26,19 +26,8 @@ export default async function PostDetailPage({
     <>
       <section>
         <h1>{post.title}</h1>
+        <h3>{post.author}</h3>
         <p>{post.body}</p>
-        <div>
-          <h3>Some links from the post:</h3>
-          <div>
-            {post.links.map((link, index) => {
-              return (
-                <a href={link} target="_blank" rel="noreferrer" key={index}>
-                  {link}
-                </a>
-              );
-            })}
-          </div>
-        </div>
       </section>
     </>
   );
