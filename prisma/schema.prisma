@@ -6,15 +6,14 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model Post {
-  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  id     String   @id @default(cuid())
   slug   String   @unique
   title  String
   body   String
-  links  String[]
-  author String
+  author String?
 }
