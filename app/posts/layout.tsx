@@ -22,17 +22,20 @@ export default async function PostsLayout({
         <meta name="description" content="Posts page" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>
-        <aside>
-          <nav>
+      <body className="min-h-screen w-full flex">
+        <aside className="flex min-h-screen w-1/4 border-r-2">
+          <nav className="w-full">
+            <h1 className="text-3xl mb-4">Post list</h1>
             {posts.map((post) => {
               return (
-                <div key={post.id}>
-                  <h1>{post.title}</h1>
-                  <p>{post.body}</p>
-                  <Link href={`/posts/${post.slug}`}>
-                    See more about this post!
-                  </Link>
+                <div key={post.id} className="border-b-[1px]">
+                  <div className="my-2">
+                    <h1 className="text-2xl">{post.title}</h1>
+                    <p className="text-zinc-300">{post.body}</p>
+                    <Link href={`/posts/${post.slug}`}>
+                      See more about this post!
+                    </Link>
+                  </div>
                 </div>
               );
             })}

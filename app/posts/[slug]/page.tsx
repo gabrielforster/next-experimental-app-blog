@@ -17,14 +17,14 @@ export default async function PostDetailPage({
   params: { slug: string };
 }) {
   const post = await getPostFromDB(params.slug);
-  // await wait(3);
+
   if (!post) {
     throw new Error(`Post with ${params.slug} was not found!`);
   }
 
   return (
     <>
-      <section>
+      <section className="text-white">
         <h1>{post.title}</h1>
         <h3>{post.author}</h3>
         <p>{post.body}</p>
